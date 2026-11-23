@@ -1,0 +1,8 @@
+{
+  "name": "KYNZO | Your Trusted Multi-Commerce Store",
+  "description": "KYNZO - The Ultimate Multi-Store E-Commerce Platform with real-time tracking, secure bKash/Nagad/COD checkout, inventory management, and fast delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
