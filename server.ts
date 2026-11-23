@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import crypto from 'crypto';
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
+import type { NextFunction, Request, Response } from 'express';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -12,7 +13,7 @@ import {
   DEFAULT_PRODUCTS,
   DEFAULT_REVIEWS,
   DEFAULT_SETTINGS,
-} from './src/data/seedData';
+} from './src/data/seedData.ts';
 import type {
   Category,
   Coupon,
@@ -22,7 +23,7 @@ import type {
   Review,
   StoreSettings,
   User,
-} from './src/types';
+} from './src/types.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -154,7 +155,9 @@ function sanitizeImageUrl(raw: unknown, fallback = '/assets/aistudio/hero.jpg'):
   if (!trimmed || trimmed.length > 2_500_000) return fallback;
   if (SAFE_DATA_IMG_RE.test(trimmed)) return trimmed;
   if (
-    (trimmed.startsWith('/assets/') || trimmed.startsWith('/src/assets/')) &&
+    (trimmed.startsWith('/assets/') ||
+      trimmed.startsWith('/src/assets/') ||
+      trimmed.startsWith('/images/')) &&
     !trimmed.includes('..') &&
     !trimmed.includes('\\')
   ) {

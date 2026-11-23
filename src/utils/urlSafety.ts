@@ -32,7 +32,9 @@ export function sanitizeImageUrl(
   }
 
   if (
-    (trimmed.startsWith('/assets/') || trimmed.startsWith('/src/assets/')) &&
+    (trimmed.startsWith('/assets/') ||
+      trimmed.startsWith('/src/assets/') ||
+      trimmed.startsWith('/images/')) &&
     !trimmed.includes('..') &&
     !trimmed.includes('\\')
   ) {
